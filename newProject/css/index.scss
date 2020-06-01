@@ -56,12 +56,95 @@
 }
 .header .right-ul{
     float: right;
+    position: relative;
 }
 .header .right-ul li a.space-btwtten {
     border-right: 1px solid #cccccc;
 }
 .hideTips{
     display: none !important;
+}
+
+.header .right-ul li:nth-of-type(2) .userinfo{
+    position: absolute;
+    width: 270px;
+    z-index: 555;
+    top: 29px;
+    left: -100px;
+    background-color: #fff;
+    display: none;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-top{
+    padding: 10px 0px 10px 15px;
+    display: flex;
+    justify-content: space-around;
+   align-items: center;
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-top img{
+    width: 60px;
+   border-radius: 50%;
+
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-top span{
+    
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider {
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    position: absolute;
+    box-sizing: border-box;
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider ul li{
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    height: 60px;
+    // margin:  0 10px;
+    cursor: pointer;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider ul li p{
+    text-align: center;
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider ul li:first-of-type{
+    padding-left: 15px;
+    z-index: -1;
+}
+// .header .right-ul li:nth-of-type(2) .userinfo .usi-slider ul li:nth-of-type(2n+1){
+   
+// }
+
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider ul li i{
+    // width: 55px;
+    // height: 55px;
+    font-size: 55px;
+    display: block;
+    color: gray;
+}
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider > i:first-of-type{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top: 18px;
+    z-index:999;
+}
+
+.header .right-ul li:nth-of-type(2) .userinfo .usi-slider > i:last-of-type{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right:5px;
+    top: 18px;
 }
 
 /* 搜索框开始 */
@@ -425,8 +508,8 @@
     color: #fff;
 }
 .network-fuli a:first-of-type{
-    background-color: red;
-    color: rgb(236, 236, 236);
+    background-color: red !important;
+    color: rgb(236, 236, 236) !important;
     
 }
 .network-fuli a:last-of-type{
@@ -938,4 +1021,17 @@ body{
 }
 .focus-goods a {
     display: block;
+}
+// 注册的下拉菜单
+
+
+.header .right-ul >li:nth-of-type(2) .myspcposition{
+    position: absolute;
+    z-index: 999;
+    height: 29px;
+    border-left: 1px solid #9c9c9c;
+    border-right: 1px solid #9c9c9c;
+    border-bottom:1px solid transparent ;
+    right: 580px;
+    background-color: #fff;
 }

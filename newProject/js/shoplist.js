@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-28 11:33:44
  * @LastEditors: YangYi
- * @LastEditTime: 2020-05-30 10:47:02
+ * @LastEditTime: 2020-06-01 17:21:45
  */
 //获取首页商品列表 渲染分页
 var options = {
@@ -13,6 +13,7 @@ var options = {
 }
 //获取等号后面的数据
 var href = location.href.slice(location.href.indexOf("=")+1);
+console.log(href);
 window.onload = function () {
     ajax(options)
         .then(res => {

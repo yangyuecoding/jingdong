@@ -4,11 +4,12 @@
  * @Autor: YangYi
  * @Date: 2020-05-29 11:49:32
  * @LastEditors: YangYi
- * @LastEditTime: 2020-05-31 12:28:58
+ * @LastEditTime: 2020-06-01 17:21:31
  */
 
 //获取等号后面的数据
 var href = location.href.slice(location.href.indexOf("=") + 1);
+
 //选择购物车元素
 var shopcar = _(".shopcar");
 //获取由于版心居中无法获取两遍的宽度
