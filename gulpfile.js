@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-06-01 13:41:10
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-01 14:48:12
+ * @LastEditTime: 2020-06-01 15:16:04
  */ 
 
 let gulp = require("gulp");
@@ -12,6 +12,7 @@ let htmlmin = require("gulp-htmlmin");
 let cssmin = require("gulp-clean-css");
 let jsmin = require("gulp-uglify");
 let babel = require("gulp-babel");
+let sass = require("gulp-sass");
 
 
 gulp.task("default",async()=>{    
@@ -43,8 +44,9 @@ gulp.task("default",async()=>{
         gulp.src("./newProject/api/**/*")
         .pipe(gulp.dest("D:\\phpstudy_pro\\WWW\\jingdong\\api"))
     })
-    gulp.watch("./newProject/css/*.css",async ()=>{
-        gulp.src("./newProject/css/*.css")
+    gulp.watch("./newProject/css/*.scss",async ()=>{
+        gulp.src("./newProject/css/*.scss")
+        .pipe(sass())
         .pipe(cssmin())
         .pipe(gulp.dest("D:\\phpstudy_pro\\WWW\\jingdong\\css"))
     })

@@ -1,5 +1,6 @@
 /* 版心 1190px */
 /* 解决高度塌陷 */
+$width:1190px;
 .clearAll::after{
     content: "";
     display: block;
@@ -9,7 +10,7 @@
     visibility: hidden;
 }
 .container{
-    width: 1190px;
+    width: $width;
     margin: 0 auto;
     position: relative;
    
