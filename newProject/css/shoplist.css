@@ -1,0 +1,105 @@
+.container{
+    width: 80%;
+    margin: 0 auto;
+    
+}
+/* 解决高度塌陷 */
+.clearAll::after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.goods-list{
+  margin-top: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+}
+.goods{
+    border: 1px solid #666;
+    width: 250px;
+    float: left;
+    padding: 20px 10px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.goods img{
+   width: 100%;
+   
+}
+.goods .title{
+    padding: 5px 10px;
+    display: block;
+    font-size: 12px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.goods .tips{
+    line-height: 26px;
+    overflow: hidden;
+   padding: 0 10px; 
+}
+.goods .tips span{
+    display: block;
+    float: left;
+}
+.goods .tips .price{
+    font-size: 14px;
+    color: darkblue;
+}
+.goods .tips .num{
+    float:right;
+}
+.pageAction {
+    float: left;
+}
+.pageAction li{
+    display: inline-block;
+    cursor: pointer;
+    float: left;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 1px solid blue;
+}
+/* .pageAction li:hover{
+    background-color: blueviolet;
+    color: #fff;
+} */
+.center{
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.active{
+    background-color: blueviolet;
+    color: #fff;
+}
+.gobackIndex{
+    position: absolute;
+    width: 120px;
+    line-height: 30px;
+    color: blueviolet;
+    left: 0;
+    top: 0;
+    opacity: 0.1;
+}
+.gobackIndex a {
+    text-decoration: none!important;
+    font-weight: 700;
+    font-size: 30px;
+}
+html,body{
+    height: 100%;
+    overflow: hidden;
+    background-color: #F4F4F4;
+
+}
+.goods-list a {
+    display: block;
+}

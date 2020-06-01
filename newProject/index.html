@@ -1,0 +1,837 @@
+<!--
+ * @Description: 越哥哥的小代码,看看就行了
+ * @Version: Beta.0.1.1
+ * @Autor: YangYi
+ * @Date: 2020-05-23 14:51:22
+ * @LastEditors: YangYi
+ * @LastEditTime: 2020-06-01 08:49:23
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+    <meta name="description"
+          content="京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"/>
+    <meta name="Keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东"/>
+    <!-- 网站主icon文件 -->
+    <link rel="icon" href="https://www.jd.com/favicon.ico">
+    <!-- 重置样式表文件 -->
+    <link rel="stylesheet" href="./css/resetAll.css">
+    <!-- 首页主css文件 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="./libs/fonts/font_1700396_zdyr1sd9fh8/iconfont.css">
+    <script src="./js/utils.js"></script>
+    <script src="./libs/jquery/jquery3.5.js"></script>
+</head>
+<body>
+    <div class="header ">
+        <div class="container clearAll">
+            <ul class="clearAll left-ul">
+                <li>
+                    <i class="iconfont icon-dingwei1 "></i>
+                    <a href="">北京</a>
+                </li>
+            </ul>
+            <ul class="clearAll right-ul">
+                <li><a href="./html/login.html" class="user-login">你好，请登录</a></li>
+                <li><a href="./html/register.html" class="user-register space-btwtten high">免费注册</a></li>
+                <li><a href="" class="user-shopcar space-btwtten">我的订单</a></li>
+                <li><a href="" class="space-btwtten">我的京东</a></li>
+                <li><a href="" class="space-btwtten">京东会员</a></li>
+                <li><a href="" class="high space-btwtten">企业采购</a></li>
+                <li><a href="" class="space-btwtten">客户服务</a></li>
+                <li><a href="" class="space-btwtten">网址导航</a></li>
+                <li><a href="" class="space-btwtten">手机京东</a></li>
+            </ul>
+        </div>
+    </div> 
+    <!-- 搜索框 -->
+    <div class="header-warp">
+        <div class="container clearAll">
+            <!-- logo -->
+            <div class="logo">
+                <a href="javascript:">
+                <img src="http://img10.360buyimg.com/img/jfs/t1/117726/20/7368/88789/5ec3777cE70ffaf64/47d8f5d0310958bd.gif" alt="">
+                </a>
+            </div>
+          <!-- 搜索框 -->
+          <div class="serach">
+                <!-- 搜索框 -->
+            <div class="serach-form">
+                <div class="sell-info"></div>
+                <input type="text" placeholder="请输入商品名称">
+                <span for="" class="iconfont icon-dingwei1 "></span>
+                <button>
+                    <i class="iconfont icon-duigou"></i>
+                </button>
+            </div>
+            <!-- 购物车 -->
+            <div class="mycar">
+                <div class="shopcar">
+                    <i class="iconfont icon-fangkuai"></i>
+                    <i class="shopcar-num">0</i>
+                    <a href="./html/shopcar.html">我的购物车</a>
+                </div>
+            </div>
+          </div>
+          <!-- 输入框下方栏 -->
+          <div class="smaltips">
+              <ul class="clearAll">
+                  <li class="high">阅读伴成长</li>
+                  <li>iphone</li>
+                  <li>5G手机</li>
+                  <li>89元三件</li>
+                  <li>阅读伴成</li>
+                  <li>阅读伴成</li>
+                  <li>阅读伴成</li>
+                  <li>阅读伴成</li>
+                  <li>阅读伴城</li>
+              </ul>
+          </div>
+          <!-- 通栏 -->
+          <div class="sell-list">
+              <div class="sell-item">
+                  <ul class="clearAll">
+                      <li ><a href="javascript:" class="high">秒杀</a></li>
+                      <li ><a href="javascript:" class="high">优惠券</a></li>
+                      <li><a href="javascript:">PLUS会员</a></li>
+                      <li><a href="javascript:">品牌闪购</a></li>
+                      <li><a href="javascript:">拍卖</a></li>
+                      <li><a href="javascript:">京东家电</a></li>
+                      <li><a href="javascript:">京东超市</a></li>
+                      <li><a href="javascript:">京东生鲜</a></li>
+                      <li><a href="javascript:">京东国际</a></li>
+                      <li><a href="javascript:">京东金融</a></li>
+                 </ul
+              </div>
+          </div>
+        </div>
+        <!-- 推广位 -->
+        <div class="pro-position">
+            <img src="https://img14.360buyimg.com/babel/jfs/t1/116582/18/7445/34840/5ec3b165E6f9b9069/cf84dc3777dd41e2.png.webp" alt="">
+        </div>
+    </div>
+    <!-- 核心物品分类 -->
+    <div class="main">
+        <div class="main-sell container">
+            <!-- 侧边栏  -->
+            <div class="nav-bar">
+                <div class="nav-box">
+                    <ul class="myslider clearAll">
+                        <li data-index="1">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="2">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="3">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="4"> 
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="5">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="6">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="7">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="8">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="9">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="10">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="11">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="12">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="13">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="14">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="15">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="16">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="17">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        <li data-index="18">
+                            <a href="javascript:">手机</a>
+                            <span>/</span>
+                            <a href="javascript:">运营商</a>
+                            <span>/</span>
+                            <a href="javascript:">数码</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- 轮播图 -->
+            <div class="slider_rows">
+                <div class="main-container"></div>
+            </div>
+            <!-- 右侧滚动条 -->
+            <div class="slider-list clearAll">
+                <div class="slider-container">
+                    <button >
+                        <i class="iconfont icon-fangkuai-"></i>
+                    </button>
+                    <div class="slider-main">
+                        <div class="img-boxs">
+                            <ul class="clearAll">
+                                <li>
+                                    <a href="javascript:">
+                                        <img src="https://img30.360buyimg.com/babel/s380x300_jfs/t1/124964/23/2724/74072/5ec7b91dE73bf8f0f/89bc7919ab160c35.jpg.webp" alt="">
+                                    </a>
+                                    <a href="javascript:">
+                                        <img src="https://img30.360buyimg.com/babel/s380x300_jfs/t1/124964/23/2724/74072/5ec7b91dE73bf8f0f/89bc7919ab160c35.jpg.webp" alt="">
+                                    </a>
+                                    <a href="javascript:">
+                                        <img src="https://img30.360buyimg.com/babel/s380x300_jfs/t1/124964/23/2724/74072/5ec7b91dE73bf8f0f/89bc7919ab160c35.jpg.webp" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:">
+                                        <img src="https://img30.360buyimg.com/babel/s380x300_jfs/t1/124964/23/2724/74072/5ec7b91dE73bf8f0f/89bc7919ab160c35.jpg.webp" alt="">
+                                    </a>
+                                    <a href="javascript:">
+                                        <img src="https://img30.360buyimg.com/babel/s380x300_jfs/t1/124964/23/2724/74072/5ec7b91dE73bf8f0f/89bc7919ab160c35.jpg.webp" alt="">
+                                    </a>
+                                    <a href="javascript:">
+                                        <img src="https://img30.360buyimg.com/babel/s380x300_jfs/t1/124964/23/2724/74072/5ec7b91dE73bf8f0f/89bc7919ab160c35.jpg.webp" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:">
+                                        <img src="//img11.360buyimg.com/babel/s380x300_jfs/t1/129360/25/2217/59686/5ec351c7E863a2a24/56a47e5a09fe929b.jpg.webp" alt="">
+                                    </a>
+                                    <a href="javascript:">
+                                        <img src="http://img20.360buyimg.com/babel/s380x300_jfs/t1/111385/4/7870/84401/5ec780a6E84b507ba/d441ea0dd83fc3a0.jpg.webp" alt="">
+                                    </a>
+                                    <a href="javascript:">
+                                        <img src="//img20.360buyimg.com/babel/s380x300_jfs/t1/125647/20/2279/82661/5ec3845aE1953625b/ed16d8ba648ede75.jpg.webp" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button>
+                        <i class="iconfont icon-fangkuai"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- 用户信息 -->
+            <div class="user-info">
+                <div class="user-top">
+                    <div class="user-log clearAll">
+                        <a href="./html/login.html" class="clearAll">
+                            <img src="data:image/png;base64,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" alt="">
+                        </a>
+                        <div class="user-left-info">
+                            <p>HI-欢迎登录京东</p>
+                            <p><a href="./html/login.html">登录</a><a href="./html/register.html">注册</a></p>
+                        </div>
+                    </div>
+                    <div class="network-fuli">
+                        <a href="javascript:">新人福利</a>
+                        <a href="javascript:">PLUS会员</a>
+                    </div>
+                    
+                </div>
+                <div class="user-middle">
+                    <div class="news3">
+                        <div class="news2">
+                            <span>京东快报</span>
+                            <span>更多&nbsp;&nbsp;&gt;</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <span>热评</span>
+                                <a href="javascript:">这10款笔记本软件...</a>
+                            </li>
+                            <li>
+                                <span>热评</span>
+                                <a href="javascript:">这10款笔记本软件...</a>
+                            </li>
+                            <li>
+                                <span>热评</span>
+                                <a href="javascript:">这10款笔记本软件...</a>
+                            </li>
+                            <li>
+                                <span>热评</span>
+                                <a href="javascript:">这10款笔记本软件...</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="user-bottom">
+                    <div class="news4">
+                        <ul>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./imgs/index/ia_100000021.png" alt="">
+                                    <a href="javascript:">话费</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-menus"></div>
+        </div>
+       
+    </div>
+    <!-- app -->
+    <div id="app">
+        <div class="all-app clearAll">
+            <!-- 抢购专区 -->
+            <div class="tobuy container clearAll">
+                <!-- 抢购时钟 活动页使用拼多多数据渲染-->
+                <a href="javascript:" class="left-clock">
+                    <div class="toBuy">京东秒杀</div>
+                    <div>
+                        <div class="cs-des">
+                            <strong>8:00</strong>
+                            点场倒计时
+                        </div>
+                        <div class="timer">
+                            <span class="time-hour">01</span>
+                            <span class="time-min">27</span>
+                            <span class="time-sec">06</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="slider-item clearAll">
+                    <button data-index="1">
+                        <i class="iconfont icon-fangkuai-"></i>
+                    </button>
+                    <div class="yy-sell-myslider">
+                       <div class="slider-end-box">
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>  
+                       </div>
+                       <div class="slider-end-box">
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>  
+                       </div>
+                       <div class="slider-end-box">
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="items clearAll">
+                            <a href="javascript:">
+                                <img src="./imgs/index/ia_100001550.webp" alt="">
+                                <p>二手99新</p>
+                            </a>
+                            <div class="kill-price">
+                                <span class="price-miaosha">
+                                    <i>￥</i>
+                                    <span>6199</span>
+                                </span>
+                                <span class="price-origin">
+                                    <i>￥</i>
+                                    <span>6999</span>
+                                </span>
+                            </div>
+                        </div>  
+                       </div>
+                    </div>
+                    
+                    <button data-index="2">
+                        <i class="iconfont icon-fangkuai"></i>
+                    </button>
+                </div>
+                <div class="rgt-slider">
+                    <div class="imgs-slider">
+                        <div class="one-imgs clearAll">
+                            <a href="javascirpt:">
+                                <img src="http://img30.360buyimg.com/mobilecms/s260x260_jfs/t1/107836/12/11403/435842/5e89f239E8a1b4b12/5b96568497f741f3.jpg.webp" alt="">
+                                <span>电脑整机秒杀专场</span>
+                                <span>电脑整机秒杀专场</span>
+                            </a>
+                        </div>
+                        <div class="one-imgs clearAll">
+                            <a href="javascirpt:">
+                                <img src="http://img30.360buyimg.com/mobilecms/s260x260_jfs/t1/107836/12/11403/435842/5e89f239E8a1b4b12/5b96568497f741f3.jpg.webp" alt="">
+                                <span>电脑整机秒杀专场</span>
+                                <span>电脑整机秒杀专场</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="spans">
+                        <span class="highcolor"></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <!-- 为你推荐 -->
+            <div class="recommend container clearAll">
+                <div class="left-tips clearAll">
+                    <a href="javascript:">
+                     <div class="mid-box">
+                        <div class="title-tips">
+                            <h3>发现好货</h3>
+                             <span>
+                                 探索新生活
+                                 <i class="iconfont icon-fangkuai"></i>
+                             </span>
+                         </div>
+                     </div>
+                    </a>
+                </div>
+                <!-- 右侧滚动条 -->
+            <div class="rig-slider-imgs">
+                <!-- 图片盒子 -->
+                <div class="sli-img clearAll">
+                    <div class="show-things clearAll">
+                        <ul class="clearAll">
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="show-things clearAll">
+                        <ul class="clearAll">
+                            <li>
+                                <img src="http://img12.360buyimg.com/mobilecms/s300x300_jfs/t1/9268/38/183/53467/5bc96b79E4e203168/0fc6743847562b93.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img12.360buyimg.com/mobilecms/s300x300_jfs/t1/9268/38/183/53467/5bc96b79E4e203168/0fc6743847562b93.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img12.360buyimg.com/mobilecms/s300x300_jfs/t1/9268/38/183/53467/5bc96b79E4e203168/0fc6743847562b93.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="show-things clearAll">
+                        <ul class="clearAll">
+                            <li>
+                                <img src="//img30.360buyimg.com/mobilecms/s300x300_jfs/t1/70579/12/2963/413549/5d131dbdE1d8e1b84/e1126d573b0fb8d5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="//img30.360buyimg.com/mobilecms/s300x300_jfs/t1/70579/12/2963/413549/5d131dbdE1d8e1b84/e1126d573b0fb8d5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                            <li>
+                                <img src="http://img14.360buyimg.com/mobilecms/s300x300_jfs/t15673/250/2662295259/30716/8c854e8a/5ab9cc28N141731c5.jpg!q70.jpg.webp" alt="">
+                                <span>超绿薄膜眼睛</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 底部滚动条 -->
+                <div class="scroll-bar">
+                    <div class="scroll-box"></div>
+                </div>
+            </div>
+            </div>
+            <!-- 首页商品列表  -->
+            <div class="sell-goods container">
+                <div class="goods-list clearAll">
+                    <!-- 渲染模板 -->
+                <!-- < class="goods">
+                    <img src="https://t00img-c.yangkeduo.com/goods/images/2020-04-19/ab67fc9ab7046bd6812116f5e6a71594.jpeg" alt="">
+                    <div class="title">
+                        <span>儿童短袖套装0-8岁男童韩版运动套装女宝宝休闲短裤婴儿衣服夏装</span>
+                    </div>
+                    <div class="price">
+                        <div class="left-pric">
+                            <i>￥</i>
+                            <span class="group-price">12.9</span>
+                            <span>￥</span>
+                            <span>98</span>
+                        </div>
+                        <div class="right-pric">
+                            <span>已图221件</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            </div>
+            <!-- 精选好货 -->
+            <div class="check-goods container">
+                <div class="bottom-tips">
+                    <span>上面的商品还不够?请点击下方商品类型</span>
+                </div>
+                <ul class="clearAll myul">
+                    <!-- 商品分类 -->
+                    <li class="focus-goods">大家电</li>
+                    <li><a href="./html/goodslist.html?cat-one-id=厨卫电器">厨卫电器</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=电脑办公">电脑办公</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=个护健康">个护健康</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=珠宝首饰">珠宝首饰</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=钟表眼镜">钟表眼镜</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=智能设备">智能设备</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=钟表眼镜">钟表眼镜</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=邮币乐器">邮币乐器</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=童装玩具">童装玩具</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=居家生活">居家生活</a></li>
+                    <li><a href="./html/goodslist.html?cat-one-id=其他">其他</a></li>
+                </ul>
+                <div class="goods-type-list">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./js/index.js"></script>

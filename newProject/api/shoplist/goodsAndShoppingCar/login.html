@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+	</style>
+<body>
+	用户名：<input id="username" type="text"  /><span id="showUser"></span><br/>
+	密　码：<input id="userPass" type="password" /><br/>
+	<input id="btnLogin" type="button" value="登录" />
+	<div id="messageBox">
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js/cookieTools.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){		
+		$("#btnLogin").click(function(){
+			//1、
+			$.post(
+				"login.php",
+				{
+					"username":$("#username").val(),
+					"userPass":$("#userPass").val()
+				},
+				function(data){					
+					if(data=="success"){//登录成功！
+						$("#messageBox").html("登录成功，2秒钟后跳转到<a href='index.html'>首页</a>！");
+						//记录cookie
+						saveCookie("username",$("#username").val(),7);
+						setTimeout(()=>{						
+							location.href="index.html";	
+						},2000);
+					}else{
+						$("#messageBox").html("登录失败，用户名或者密码不对！");
+					}
+				}
+			);
+		});
+	});
+	
+</script>

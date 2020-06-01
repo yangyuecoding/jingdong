@@ -1,0 +1,303 @@
+
+/* 解决高度塌陷 */
+.clearAll::after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+/* 版心 */
+.container{
+    width: 1210px;
+    margin: 0 auto;
+}
+
+.head{
+    width: 100%;
+    box-shadow: 0 2px 5px 5px #ccc;
+    position: relative;
+    text-align: center;
+}
+
+.container .big_inco{
+    display: block;
+    width: 160px;
+    height: 50px;
+    float: left;
+    background: url(../imgs/register/64569787-4a4b-4169-a998-5a59ce432067.png);
+    margin-top:20px;
+}
+.container .tip-info{
+    float: left;
+   font-size: 24px;
+   color: #333;
+   margin-top: 34px;
+}
+.top-info{
+    width: 100%;
+    background-color: #fff8f0;
+}
+ .tips{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 30px;
+}
+.tips .tips-inco{
+    vertical-align: middle;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../imgs/login/ia_100000006.png");
+    
+}
+.tips p{
+    vertical-align: middle;
+    display: inline-block;
+}
+.high{
+    color: red;
+}
+.right_btn{
+    font-size: 16px;
+    float: right;
+    margin-top: 45px;
+    color: #999;
+    padding-right: 110px;
+}
+
+/* 权重不够 */
+.hideTips{
+    display: none;
+}
+
+/* 登录盒子 */
+.main{
+    width: 100%;
+   background-color: #e93854;
+   position: relative;
+}
+.login_bj_box{
+   width: 990px;
+   margin: 0 auto;
+}
+.login_box{
+    height: 475px;
+    position: relative;
+    background-image: url("../imgs/login/ia_100000022.png");
+}
+
+/* 登录盒子 */
+.my-login-box{
+    float: right;
+    width: 346px;
+    position: relative;
+    background-color: #fff;
+    margin-top: 10px;
+}
+.warper-info{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #fff8f0;
+}
+.warper-info i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background-image: url("../imgs/login/ia_100000006.png");
+}
+.warper-info p{
+    display: inline-block;
+    vertical-align: middle;
+}
+.toggle-login{
+    border-bottom: 1px solid #ccc;
+}
+.toggle-login a{
+    display: inline-block;
+    color: rgb(109, 109, 109);
+    font-size: 16px;
+    padding:15px 50px;
+}
+.toggle-login a:first-of-type{
+    float: left;
+}
+.toggle-login a:last-of-type{
+    float: right;
+}
+/* 激活登录状态 */
+.toggle-login .login-color{
+    color: #e4393c;
+    font-weight: 700;
+
+}
+.msg-warp{
+    min-height: 23px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: auto!important;
+}
+/* 错误信息 */
+.error-info{
+    position: relative;
+    
+    color: #e4393c;
+    
+    line-height: 15px;
+    height: auto;
+    padding: 0 20px;
+}   
+.msg-warp img{
+    width: 100%;
+  height: 19px;
+}
+.info-b{
+    padding: 2px 20px;
+    background: #ffebeb;
+    border: 1px solid #faccc6;
+}
+.error-info .info-b i,span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.error-info .info-b i{
+    background: url("../imgs/login/ia_100000021.png") no-repeat -104px -49px;
+    width: 16px;
+    height: 16px;
+    margin: 0 10px 0 -10px;
+}
+
+.mc{
+    width: 100%;
+}
+.form{
+    padding: 0 20px;
+}
+.form .username,.password{
+    border: 1px solid #999;
+    position: relative;
+    line-height: 38px;
+    margin-bottom: 20px;
+}
+.form .username label{
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    vertical-align: middle;
+    background-image: url("../imgs/login/ia_100000021.png");
+    border-right:1px solid #999 ;
+}
+.form .username input{
+    vertical-align: middle;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+}
+.form .username span{
+    position: absolute;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url("../imgs//login/ia_100000021.png") no-repeat -25px -143px;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.form .password input{
+    vertical-align: middle;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+}
+.form .password span{
+    position: absolute;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url("../imgs//login/ia_100000021.png") no-repeat -25px -143px;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.form .password label{
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    vertical-align: middle;
+    background-image: url("../imgs/login/ia_100000021.png");
+    background-position: -48px 0;
+    border-right:1px solid #999 ;
+}
+
+.forgetpwd{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.forgetpwd a{
+    float: right;
+}
+.tologin{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.tologin .tologin-box{
+    padding:0 20px;
+    background-color: #e4393c;
+    cursor: pointer;
+}
+.tologin .tologin-box span{
+    color: #fff;
+    font-size: 20px;
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing:10px;
+}
+/* 隐藏叉号、错误提示 */
+.hideiptTips{
+    display: none !important;
+}
+
+/* 底部按钮 */
+.btns{
+    width: 100%;
+    background-color: #fcfcfc;
+    border-top: 1px solid #f4f4f4 ;
+}
+.btns ul {
+    padding: 10px 20px;
+}
+.btns ul li {
+    float: left;
+    display: inline-block;
+    vertical-align: middle;
+}
+.btns ul li i {
+    display: inline-block;
+    width: 19px;
+    height: 18px;
+    vertical-align: middle;
+}
+.btns ul li:first-of-type i {
+    background-image: url("../imgs//login/ia_100000020.png");
+}
+.btns ul li:nth-of-type(2) i {
+    background-image: url("../imgs//login/ia_100000020.png");
+    background-position: -19px 0;
+}
+.btns ul li:nth-of-type(3) i{
+    width: 16px;
+    height: 16px;
+    background: url("../imgs//login/ia_100000021.png") no-repeat -104px -75px;
+}
+.btns ul li:last-of-type{
+    float: right;
+}

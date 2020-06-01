@@ -1,0 +1,390 @@
+/* 版心 1190px */
+/* 解决高度塌陷 */
+.clearAll::after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.container{
+    width: 1190px;
+    margin: 0 auto;
+    position: relative;
+   
+}
+.myMain {
+    border: 1px solid #e3e4e5;
+}
+/* 头部css */
+
+/* 版心 1190px */
+/* 解决高度塌陷 */
+.clearAll::after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.container{
+    width: 1190px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 首页开始 */
+.header{
+    background-color: #e3e4e5;
+}
+.header ul{
+    float: left;
+
+}
+.header ul li{
+    font-size: 13px;
+    height: 30px;
+    float: left;
+    color: #999;
+    line-height: 30px;
+}
+.header ul li{
+    float: left;
+}
+.header ul li a{
+    display: inline;
+}
+.header ul li:first-of-type{
+    display: flex;
+}
+.header ul li:first-of-type i{
+    color: red;
+}
+/* 登录按钮 */
+/* .header ul li .user-login{ */
+    /* margin-left: 525px; */
+    /* margin-right: 8px; */
+/* } */
+/* 高亮企业采购和注册 */
+.high{
+    color: red;
+}
+/* 鼠标移入开始变色 */
+.space-btwtten{
+    padding: 0 15px 0 15px;
+}
+.header .right-ul{
+    float: right;
+}
+.header .right-ul li a.space-btwtten {
+    border-right: 1px solid #cccccc;
+}
+.hideTips{
+    display: none !important;
+}
+
+/* 搜索框开始 */
+.header-warp .container .logo{
+    width: 190px;
+    height: 120px;
+    display: block;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 2;
+}
+.header-warp .container .logo img{
+    width: 100%;
+}
+.header-warp .serach{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    padding-top:30px ;
+    box-sizing: border-box;
+}
+.header-warp .serach .serach-form{
+    display: inline-block;
+    border: 2px solid #f00;
+    position: relative;
+    box-sizing: border-box;
+    margin-left: -58px;
+}
+.header-warp .serach .serach-form input{
+    width: 425px;
+    height: 26px;
+    outline: 0;
+    border: none;
+    padding: 2px 44px 2px 17px;
+    vertical-align: middle;
+}
+
+.header-warp .serach .serach-form span{
+    vertical-align: middle;
+    display: inline-block;
+    width: 19px;
+    height: 15px;
+    position: absolute;
+    top:8px;
+    right: 68px;
+
+}
+.header-warp .serach .serach-form button{
+    border-radius: 0;
+    right: 0;
+    width: 58px;
+    height: 32px;
+    line-height: 32px;
+    border: none;
+    background-color: #e1251b;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    outline: 0;
+    float: right;
+}
+
+/* 购物车开始 */
+
+.header-warp .serach .shopcar{
+    width: 130px;
+    height: 34px;
+    position: absolute;
+    right: 195px;
+    z-index: 21;
+    top:30px;
+    color: red;
+    line-height: 34px;
+    background-color: #fff;
+    border: 1px solid #666;
+}
+.header-warp .serach .shopcar i{
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+.header-warp .serach .shopcar i:last-of-type{
+    position: absolute;
+    top: 1px;
+    left: 29px;
+    right: auto;
+    display: inline-block;
+    padding: 1px 3px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    background-color: #e1251b;
+    border-radius: 7px;
+    min-width: 12px;
+    text-align: center;
+}
+.header-warp .serach .shopcar a {
+    color: red;
+}
+.smaltips{
+   text-align: center;
+   height: 26px;
+   line-height: 26px;
+}
+.smaltips .mytips{
+    display: inline-block;
+}
+.smaltips ul{
+    margin-left: 290px;
+}
+.smaltips ul li {
+    margin-right: 10px;
+    float: left;
+    cursor: pointer;
+}
+.smaltips ul li:hover{
+    color: red;
+}
+/* 高亮提示 */
+.high{
+    color: red;
+}
+
+/* 购买提示 */
+.sell-list{
+    padding-top: 20px;
+}
+.sell-list .sell-item {
+    text-align: center;
+    text-align: center;
+}
+.sell-list .sell-item ul{
+    display: inline-block;
+    margin-left: -50px;
+}
+.sell-list .sell-item ul li {
+    float: left;
+    cursor: pointer;
+    
+}
+.sell-list .sell-item a {
+    position: relative;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    color: #333;
+    margin: 0 11px;
+}
+.sell-list .sell-item a.high{
+    color: red;
+}
+.sell-list .sell-item ul li:hover a {
+    color: red;
+}
+/* 推广位 */
+.pro-position{
+    width: 190px;
+    height: 120px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+.pro-position img{
+    width: 100%;
+}
+/* 放大镜动态生成 */
+.magnifier{
+    width: 350px;
+    height: 350px;
+    border: 1px solid #999;
+    background: url("https://image3.suning.cn/uimg/b2c/newcatentries/0070072706-000000000107363249_1_800x800.jpg") no-repeat;
+    background-size: contain;
+}
+.cutting_box{
+    width: 100px;
+    height:100px;
+}
+.big_box{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 0;
+    left: 350px;
+    border: 1px solid #999;
+}
+.big_box img{
+    width: 100%;
+}
+.manger_box {
+    float: left;
+}
+.active{
+    background-color: red;
+    color: #fff;
+}
+body,html{
+    height: 2000px;
+   
+}
+.sell-info {
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+    
+}
+.sell-info .title{
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.sell-info .price{
+    padding: 30px 0;
+    font-size:30px ;
+    color: red;
+    font-weight: 700;
+}
+.sell-info .level ul li {
+    float: left;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #999;
+}
+.ok button{
+    /* margin-top: 30px; */
+    outline: 0;
+    padding: 10px;
+    border: 1px solid #999;
+    float: left;
+    font-size: 20px;
+}
+.ok button:first-of-type{
+    background-color: orange;
+}
+
+.ok button:last-of-type{
+    background-color: red;
+}
+.title-tips{
+    padding-left: 10px;
+    height: 30px;
+    color: #999;
+    font-size: 20px;
+    background-color: #cccccc;
+    line-height: 30px;
+    border-bottom: 1px solid #999;
+    border-top: 1px solid #999;
+    margin-bottom: 1px;
+    
+}
+.goods-sell-info{
+    margin-bottom: 10px;
+}
+.goods-sell-info ul{
+    padding-left: 10px;
+}
+.goods-sell-info ul li {
+    vertical-align: middle;
+    line-height: 1;
+    cursor: pointer;
+    float: left;
+    padding: 5px;
+    font-size: 14px;    
+    border: 1px solid transparent;
+}
+.goods-detail{
+    position: relative;
+}
+.goods-sell-info ul li:last-of-type{
+    margin-left: 10px;
+}
+.goods-sell-info {
+    background-color: #e3e4e5;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding:5px 0;
+}
+
+.tip_ac{
+    color: #fff;
+    border: 1px solid #ccc !important; 
+}
+.goods-num {
+    padding:10px 0px 10px 70px;
+}
+.goods-num input{
+    outline: 0;
+    width: 20px;
+    height: 30px;
+    float: left;
+}
+.goods-num .btns{
+    width: 15px;
+    float: left;
+}
+.goods-num .btns button{
+    width: 15px;
+    height: 17px;
+    border: 1px solid #e3e4e5;
+}
+.shopcar_color {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: aquamarine;
+}
