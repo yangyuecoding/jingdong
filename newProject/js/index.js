@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-25 09:47:00
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-01 20:36:11
+ * @LastEditTime: 2020-06-02 20:32:46
  */
 
 
@@ -24,13 +24,16 @@ var register = _(".user-register"),
     slid_rig_logi = _(".slid_rig_logi"),
     slid_rig_logo = _(".slid_rig_logo"),
     slid_rig_upd = _(".slid_rig_upd"),
-    slid_rig_rem = _(".slid_rig_rem");
+    slid_rig_rem = _(".slid_rig_rem"),
+    rig_slider_imgs = _(".scroll-bar"),
+    scroll_box = _(".scroll-box"),
+    sli_img =_(".sli-img");
 //用户侧左右移动状态变量
 var inco_move_count = 0;
 
 var shopcar_num = _(".shopcar-num");
 function regUserName() {
-    if (Cookie("token")) {
+    if (Cookie("token")) {   
         var right_clc_event = new Event("click");
         addClass(login, "hideTips");
         removeClass(register, "high");
@@ -680,8 +683,10 @@ window.onscroll = function () {
             marginTop: -30,
             paddingTop: 12,
             backgroundColor: "#fff",
-            borderBottom: "2px solid red"
+            borderBottom: "2px solid red",
+            "z-index":999
         });
+       
         $(".shopcar").css({
             right: 360,
             zIndex: 999,
@@ -769,9 +774,11 @@ $(".sli-img").css({
 var move_count = 0;
 // 控制移动的变量
 var imgs_isMOVE = true;
+var timer1 = null;
 function autoMove() {
     if(!imgs_isMOVE) return false;
-    setInterval(() => {
+    clearInterval(timer1);
+    timer1 = setInterval(() => {
         move_count++;
         if (2 * move_count === 1980) {
             move_count = 0;
@@ -798,42 +805,42 @@ var autoMove = new Event("mouseleave");
 //     autoMove();
 // })
 // 拖拽
-function Drag(select){
-    this.ele = document.querySelector(select);
-    this.init();
-}
-Drag.prototype = {
-    constructor:Drag,
-    init:function(){
-        this.offset = {};
-        this.client = {};
-        this.isDrag = false;
-        this.bindEvent();
-    },
-    bindEvent:function(){
+// function Drag(select){
+//     this.ele = document.querySelector(select);
+//     this.init();
+// }
+// Drag.prototype = {
+//     constructor:Drag,
+//     init:function(){
+//         this.offset = {};
+//         this.client = {};
+//         this.isDrag = false;
+//         this.bindEvent();
+//     },
+//     bindEvent:function(){
       
-        on(this.ele,"mousedown",function(e){
-            e = e || window.event;
-            this.offset.x = e.offsetX;
-            this.isDrag = true;
-            console.log(this.offset,this.client)
-        }.bind(this))
-        on(document,"mousemove",function(e){
-            if(!this.isDrag) return false;
-            this.client.x = e.clientX;
-            this.move();
-        }.bind(this))
-        on(document,"mouseup",function(){
-            this.isDrag =false;
-        }.bind(this))
-    },
-    move:function(){
-        var _left = this.client.x - this.offset.x;
-        this.ele.style.left = _left + "px";
-    }
-}
+//         on(this.ele,"mousedown",function(e){
+//             e = e || window.event;
+//             this.offset.x = e.offsetX;
+//             this.isDrag = true;
+//             console.log(this.offset,this.client)
+//         }.bind(this))
+//         on(document,"mousemove",function(e){
+//             if(!this.isDrag) return false;
+//             this.client.x = e.clientX;
+//             this.move();
+//         }.bind(this))
+//         on(document,"mouseup",function(){
+//             this.isDrag =false;
+//         }.bind(this))
+//     },
+//     move:function(){
+//         var _left = this.client.x - this.offset.x;
+//         this.ele.style.left = _left + "px";
+//     }
+// }
 
-let sc_boxx = new Drag(".scroll-bar");
+// let sc_boxx = new Drag(".scroll-bar");
 
 //点击li的时候村一条cookie 记录当前点击的id
 
@@ -872,3 +879,55 @@ li_list.forEach( (item,index) => {
         addClass(li_list[li_next],"focus-goods");
     }
 } )
+
+//发现好货
+console.log(rig_slider_imgs);
+console.log(scroll_box,sli_img);
+
+
+//拖拽开始
+class Drag{
+    constructor(options){
+        //选择元素
+        this.init(options);
+        //移动状态变量
+        this.isMove = false;
+        console.log(this)
+    }
+    init(options){
+        this.chooseEle(options);
+       this.bindEvent();
+        console.log(this);
+    }
+    chooseEle(options){
+        for(var attr in options){
+            this[attr+"_ele"] = document.querySelector(options[attr]);
+        }
+    }
+    //判定事件
+    bindEvent(){
+        on(this.move_box_ele,"mousedown",function(){
+           console.log("拖拽开始!");
+           this.isMove = true;
+        }.bind(this))
+        on(document.body,"mousemove",function(){
+            if(!this.isMove) return false;
+            //盒子移动
+            this.box_slider();
+         }.bind(this))
+         on(document.body,"mouseup",function(){
+            console.log("拖拽结束!");
+            this.isMove = false;
+         }.bind(this))
+    }
+    //边界判断
+    boundary(){
+
+    }
+}
+
+new Drag({
+    move_box:".scroll-box",
+    move_fat:".scroll-bar",
+    sli_img:".sli-img"
+})

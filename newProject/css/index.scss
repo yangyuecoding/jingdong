@@ -595,7 +595,6 @@
     background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
-    z-index: 999;
 }
 .toBuy{
     width: 100%;
@@ -855,7 +854,7 @@ body{
 }
 .recommend {
     margin-top: 20px;
-    z-index: -1;
+   
 }
 /* 发现好货提示 */
 .recommend .left-tips{

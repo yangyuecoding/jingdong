@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-30 16:08:13
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-02 18:12:05
+ * @LastEditTime: 2020-06-02 19:06:55
  */
 
 var register = _(".user-register"),
@@ -230,13 +230,14 @@ function handeladd(){
         console.log(res);
         if(res.code == "250"){
              //重新渲染购物车数量
-             rendershopcarnum();
+            //  rendershopcarnum();
+            this.previousElementSibling.value = num;
+            shopcar_num.innerHTML = Number(shopcar_num.innerHTML) + 1;  
         }
     })
     .catch(rej => {
         console.log(rej);
     })
-    
 }
 
 //删除数量
@@ -261,7 +262,9 @@ function handelreduce(){
         console.log(res);
         if(res.code == "250"){
              //重新渲染购物车数量
-             rendershopcarnum();
+            //  rendershopcarnum();
+            this.nextElementSibling.value = num;
+            shopcar_num.innerHTML = Number(shopcar_num.innerHTML) - 1;  
         }
     })
     .catch(rej => {
