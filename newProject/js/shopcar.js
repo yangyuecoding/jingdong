@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-30 16:08:13
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-02 19:06:55
+ * @LastEditTime: 2020-06-03 00:22:40
  */
 
 var register = _(".user-register"),
@@ -203,6 +203,10 @@ function handelDel(e){
             this.parentNode.remove();
             //重新渲染购物车数量
             rendershopcarnum();
+            //将全选按钮职位false  初始化数量和金额
+            allchk.checked = false;
+            count.innerHTML = "0"; 
+            all_price.innerHTML = "0.00";
         }else{
             alert("服务器错误删除失败，请联系客服");
         }

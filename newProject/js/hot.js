@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-06-01 22:05:33
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-02 16:00:47
+ * @LastEditTime: 2020-06-03 00:03:55
  */
 var register = _(".user-register"),
     login = _(".user-login"),
@@ -125,20 +125,18 @@ window.onload = function () {
         var rush_time = d.getHours();
     }else{
         var rush_time = d.getHours() - 1;
-    }
+    }    
     console.log(rush_time);
-    
     setInterval(function () {
         if (!((rush_time + 2) === d.getHours())) return false;
             rush_time += 2;
             if ((rush_time + 2) === d.getHours()) {
                 rush_time = rush_time + 2;
-                renderRTB(rush_time);
-                if (rush_time === 24) {
+                if (rush_time >= 24) {
                     rush_time = 0;
                 }
-            } else {
-                return false;
+                renderRTB(rush_time);
+
             }
     }, 1000);
    
@@ -162,6 +160,7 @@ function judgeHour(d) {
 
 //每两个小时更新一次  抢购倒计时
 function renderRTB(num) {
+
     //倒计时开始元素
     var elechild;
     //倒计时滚动时间
@@ -169,7 +168,9 @@ function renderRTB(num) {
         elechild = item.children[0].children[0];
         elechild.innerHTML = addZero(num + index * 2);
         //通过new Data() 计算出来 当前的小时时间是否与 当前元素的小时时间=2  是否是 大于等于关系
-
+        if( Number(elechild.innerHTML) >= 24){
+            elechild.innerHTML = addZero(Number( elechild.innerHTML) % 24);
+        }
     })
     checkTimer(num);
 }
@@ -211,7 +212,11 @@ function disappeartime(options, toBreak) {
     reduce_time[0].innerHTML = hour;
     reduce_time[1].innerHTML = min;
     reduce_time[2].innerHTML = sec;
-
+   if( Number(hour) ===0  && Number(min) === 0 && Number(sec) === 0){
+       if(confirm("本场次抢购已经结束")){
+           location.reload(true);
+       }
+   }
 }
 //计数单位
 function getZero(num) {

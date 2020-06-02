@@ -584,7 +584,6 @@
 
 /* 抢购专区 */
 .left-clock{
-    z-index: -1;
     position: relative;
     float: left;
     width: 190px;
@@ -1034,4 +1033,7 @@ body{
     border-bottom:1px solid transparent ;
     right: 580px;
     background-color: #fff;
+}
+.rig_slider_imgs,.scroll_box{
+    opacity: 0;
 }

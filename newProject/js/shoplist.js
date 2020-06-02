@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-28 11:33:44
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-02 14:15:30
+ * @LastEditTime: 2020-06-02 23:38:16
  */
 //获取首页商品列表 渲染分页
 var options = {
@@ -169,20 +169,21 @@ var goback = _(".gobackIndex");
 //获取浏览器的宽、高
 var w_width = window.innerWidth;
 var w_height = window.innerHeight;
+console.log(w_width,w_height)
 //获取自身的宽高
 var widht = parseInt(getStyle(goback,"width"));
 var height = parseInt(getStyle(goback,"height"));
 window.onresize = function(){
      w_width = window.innerWidth;
      w_height = window.innerHeight;
-    // console.log(w_width,w_height)
+    console.log(w_width,w_height)
 
 }
 //判断边界
 var _left = w_width - widht <= 0 ? 0 : w_width - widht;
-    left = w_width >= w_width - widht?w_width - widht:w_width;
+    left = w_width >= (w_width - widht)?w_width - widht:w_width;
 var _top = w_height - height <= 0 ? 0: w_height - height;
-    _top = w_height >= w_height - height?w_height - height:w_height;
+    _top = w_height >= (w_height - height)?w_height - height:w_height;
 
 var timer = setInterval(randomMove,2000);
 function randomMove(){

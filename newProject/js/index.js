@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-25 09:47:00
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-02 20:32:46
+ * @LastEditTime: 2020-06-03 00:19:11
  */
 
 
@@ -27,6 +27,7 @@ var register = _(".user-register"),
     slid_rig_rem = _(".slid_rig_rem"),
     rig_slider_imgs = _(".scroll-bar"),
     scroll_box = _(".scroll-box"),
+    scroll_big_img =_(".rig-slider-imgs");
     sli_img =_(".sli-img");
 //用户侧左右移动状态变量
 var inco_move_count = 0;
@@ -778,6 +779,8 @@ var timer1 = null;
 function autoMove() {
     if(!imgs_isMOVE) return false;
     clearInterval(timer1);
+    animate(rig_slider_imgs,{opacity:0},"swing");
+    animate(scroll_box,{opacity:0},"swing");
     timer1 = setInterval(() => {
         move_count++;
         if (2 * move_count === 1980) {
@@ -790,79 +793,26 @@ function autoMove() {
 }
 // autoMove();
 var sli_img = _(".sli-img");
+scroll_big_img.addEventListener("mouseenter",stopMove)
+scroll_big_img.addEventListener("mouseleave",autoMove);
+function stopMove(){
+    animate(rig_slider_imgs,{opacity:1},"swing");
+    animate(scroll_box,{opacity:1},"swing");
+    clearInterval(timer1);
+}
+//自定义事件  鼠标移入事件
+var autoMove = new Event("mouseenter");
+//自定义鼠标移出事件
+var autoLeave = new Event("mouseleave");
 
-sli_img.addEventListener("mouseleave",autoMove);
+scroll_big_img.dispatchEvent(autoLeave);    
 
-//自定义事件
-
-var autoMove = new Event("mouseleave");
-
-// sli_img.dispatchEvent(autoMove);    
-
-// on(sli_img,"mouseenter",function(){
-//     console.log(1);
-//     imgs_isMOVE = false;
-//     autoMove();
-// })
-// 拖拽
-// function Drag(select){
-//     this.ele = document.querySelector(select);
-//     this.init();
-// }
-// Drag.prototype = {
-//     constructor:Drag,
-//     init:function(){
-//         this.offset = {};
-//         this.client = {};
-//         this.isDrag = false;
-//         this.bindEvent();
-//     },
-//     bindEvent:function(){
-      
-//         on(this.ele,"mousedown",function(e){
-//             e = e || window.event;
-//             this.offset.x = e.offsetX;
-//             this.isDrag = true;
-//             console.log(this.offset,this.client)
-//         }.bind(this))
-//         on(document,"mousemove",function(e){
-//             if(!this.isDrag) return false;
-//             this.client.x = e.clientX;
-//             this.move();
-//         }.bind(this))
-//         on(document,"mouseup",function(){
-//             this.isDrag =false;
-//         }.bind(this))
-//     },
-//     move:function(){
-//         var _left = this.client.x - this.offset.x;
-//         this.ele.style.left = _left + "px";
-//     }
-// }
-
-// let sc_boxx = new Drag(".scroll-bar");
 
 //点击li的时候村一条cookie 记录当前点击的id
 
 //选择元素
 var list = _(".check-goods > ul > li");
 
-//给每一个绑定一个事件 
-//百分比加密
-//encodeURIComponent
-// list.forEach( item => {
-//     item.onclick = function(){
-//        Cookie("shop-type",encodeURIComponent(this.innerHTML),{
-//            path:"/"
-//        });
-//        console.log();
-//        //如果验证陈宫跳转对应类型的商品列表页
-//        if(Cookie("shop-type")){
-//            location.replace("./html/goodslist.html");
-//        }
-
-//     }
-// })
 
 //选择商品类型的切换效果
 var li_list = [].slice.call(_(".myul li"));
@@ -881,8 +831,7 @@ li_list.forEach( (item,index) => {
 } )
 
 //发现好货
-console.log(rig_slider_imgs);
-console.log(scroll_box,sli_img);
+
 
 
 //拖拽开始
@@ -892,12 +841,11 @@ class Drag{
         this.init(options);
         //移动状态变量
         this.isMove = false;
-        console.log(this)
     }
     init(options){
         this.chooseEle(options);
+        this.fixedvarable();
        this.bindEvent();
-        console.log(this);
     }
     chooseEle(options){
         for(var attr in options){
@@ -908,21 +856,65 @@ class Drag{
     bindEvent(){
         on(this.move_box_ele,"mousedown",function(){
            console.log("拖拽开始!");
+           //结束元素的运动
+           this.sli_img_ele.dispatchEvent(autoMove);  
            this.isMove = true;
         }.bind(this))
-        on(document.body,"mousemove",function(){
+        on(document.body,"mousemove",function(e){
+            e = e || window.event;
             if(!this.isMove) return false;
             //盒子移动
-            this.box_slider();
+           var x = e.pageX;
+          
+           this.box_slider(x);
+            e.preventDefault();
+            
          }.bind(this))
          on(document.body,"mouseup",function(){
             console.log("拖拽结束!");
             this.isMove = false;
+            //开启元素的运动
+            setTimeout(this.sli_img_ele.dispatchEvent(autoLeave),1000)
          }.bind(this))
     }
+    box_slider(x){
+       var _left = x - this.ancestors_offset._ac_left - this.ancestors_offset._ac_out_left - this.move_box_ele_offset._width / 2;
+        //判断边界
+       var end_pos =  this.boundary(_left);
+       this.move_box_ele.style.left = end_pos + "px";
+      
+       //计算移动的比例
+       this.move_p = {
+           x_p: isNaN((end_pos / ( this.move_fat_ele_offset._width - this.move_box_ele_offset._width )))?1:end_pos / ( this.move_fat_ele_offset._width - this.move_box_ele_offset._width )
+       }
+       //图片容器跟随移动
+       this.sli_img_ele.style.cssText = `width:3960px;transform:translateX(-${ parseInt( this.move_p.x_p * (this.sli_img_ele.offsetWidth -990) ) }px)`;
+       //将进度条拉动的距离存到 原本函数上面，防止每次拖拽结束回到0
+       move_count =  parseInt(parseInt( this.move_p.x_p * (this.sli_img_ele.offsetWidth -990) ) / 2);
+       //判断图片容器的移动范围
+       if( 2* move_count >= 1980){
+           move_count = 0;
+       }
+    }
     //边界判断
-    boundary(){
-
+    boundary(_left){
+        _left = _left <= 0? 0 :_left;
+        _left = _left >= ( this.move_fat_ele_offset._width - this.move_box_ele_offset._width ) ?( this.move_fat_ele_offset - this.move_box_ele_offset._width ):_left;
+        return _left;
+    }
+    // 固定参数 为 元素的offsetleft
+    fixedvarable(){
+        this.ancestors_offset = {
+            _ac_left:this.move_box_ele.parentNode.parentNode.offsetLeft,
+            _ac_out_left:this.move_box_ele.parentNode.parentNode.parentNode.offsetLeft,
+        }   
+        this.move_box_ele_offset = {
+            _width:this.move_box_ele.offsetWidth
+        }
+        //大长条的长度
+        this.move_fat_ele_offset = {
+            _width:this.move_fat_ele.offsetWidth
+        }
     }
 }
 
