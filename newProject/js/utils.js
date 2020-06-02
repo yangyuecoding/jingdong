@@ -656,7 +656,7 @@ class Magnifier {
         //获取鼠标位置
         var _left = e.pageX - this.small_box_offset._left - (this.cutting_box_offset._width / 2);
         var _top = e.pageY - this.small_box_offset._top - (this.cutting_box_offset._heiht / 2);
-        
+  
         //判断边界
         var pos = this.cutting_boundary(_left,_top);
         this.cutting_box.style.left = pos.x + "px";
@@ -698,9 +698,10 @@ class Magnifier {
             _width:this.small_box.offsetWidth,
             _heiht:this.small_box.offsetHeight,
             _left:this.small_box.parentNode.parentNode.parentNode.offsetLeft,
-            _top:this.small_box.parentNode.parentNode.parentNode.offsetTop
+            _top:this.small_box.parentNode.parentNode.parentNode.offsetTop + 32
         }
-        console.log(this.small_box_offset);
+        //放大镜最好位于最上面，上面不要放同级占位元素    这里加32是因为上面有同级元素，印象了放大镜父级元素的offsetTop
+        console.log(this.small_box_offset,this.small_box.parentNode.parentNode.parentNode);
         //裁剪盒子的宽高
         this.cutting_box_offset = {
             _width:parseInt(getStyle(this.cutting_box,"width")),

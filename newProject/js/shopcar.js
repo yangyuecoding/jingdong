@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-30 16:08:13
  * @LastEditors: YangYi
- * @LastEditTime: 2020-05-31 21:41:37
+ * @LastEditTime: 2020-06-02 18:12:05
  */
 
 var register = _(".user-register"),
@@ -33,7 +33,6 @@ function regUserName() {
         removeClass(register, "high");
         register.href = "javascript:";
         register.innerHTML = Cookie("token");
-
         //有cookie渲染购物车数量
         rendershopcarnum();
     } else {
@@ -56,6 +55,8 @@ function rendershopcarnum() {
             shopcar_num.innerHTML = res.body.data.reduce((data, item) => {
                 return data += Number(item.goods_count);
             }, 0)
+            
+            console.log(res.body.data);
             //渲染购物车列表
             rendereTable(res.body.data);
         })
@@ -67,7 +68,6 @@ function rendershopcarnum() {
 
 function rendereTable(res){
     //购物车渲染程序
-    console.log(res);
     //渲染模板
     // _(".myTbody").innerHTML
     //    return  html += `
@@ -85,12 +85,12 @@ function rendereTable(res){
     //     <td>删除</td>
     // </tr>
     //
-    res.forEach( (item,index) => {
-        // console.log(item.goods_id,index);
+    // _(".myTbody").innerHTML = "";
+    res.forEach( (item) => {
         renderUserlist(item);
     })  
+        tbody_html = "";
     }
-
 
 //因为购物用户购物车的东西较多  需要循环发送请求渲染用户数据
 
@@ -113,7 +113,11 @@ async function renderUserlist( item ){
                 </div>
             </td>
             <td>${data.goods_price}</td>
-            <td>${item.goods_count}</td>
+            <td class="count_calc">
+                <button class="redu">-</button>
+                <input type="text" name="" id="" value="${item.goods_count}" disabled>
+                <button class="toadd">+</button>
+            </td>
             <td>${Number(data.goods_price) * Number(item.goods_count) }</td>
             <td class="del">删除</td>
         </tr>`;
@@ -145,24 +149,32 @@ function handleCheckEvent(e){
 //处理 是否点击的总价钱和商品总量的数量
 function changeInnerHtml(flag){
     if(flag){
-        count.innerHTML = Number(count.innerHTML) + Number(this.parentNode.parentNode.children[3].innerHTML); 
+        count.innerHTML = Number(count.innerHTML) + Number(this.parentNode.parentNode.children[3].children[1].value); 
         all_price.innerHTML = (Number(all_price.innerHTML)+Number(this.parentNode.parentNode.children[4].innerHTML)).toFixed(2);
     }else{
-        count.innerHTML = Number(count.innerHTML) - Number(this.parentNode.parentNode.children[3].innerHTML); 
+        
+        count.innerHTML = Number(count.innerHTML) - Number(this.parentNode.parentNode.children[3].children[1].value); 
         all_price.innerHTML = (Number(all_price.innerHTML)-Number(this.parentNode.parentNode.children[4].innerHTML)).toFixed(2);
     }
 }
 //全选按钮
 on(allchk,"click",handelallchkEvent);
 function handelallchkEvent(){
-    console.log(_(".youcheck"));
     var chklist = Array.from(document.querySelectorAll(".youcheck"));
+    //全选前先清空价格和数量
+    count.innerHTML = "0";
+    all_price.innerHTML ="0.00";
+    // chklist
     chklist.forEach(item => {
+        // if(item.checked){
+        //     done_count += Number(item.parentNode.parentNode.children[3].children[1].value);
+        //     done_money += Number(item.parentNode.parentNode.children[4].innerHTML) ;
+        // }
         if(this.checked){
             item.checked = true;
             //遍历所有item的父元素拿到商品的总量
-            count.innerHTML = Number(count.innerHTML) + Number(item.parentNode.parentNode.children[3].innerHTML); 
-            all_price.innerHTML = (Number(all_price.innerHTML)+Number(item.parentNode.parentNode.children[4].innerHTML)).toFixed(2);
+            count.innerHTML = Number(count.innerHTML) + Number(item.parentNode.parentNode.children[3].children[1].value); 
+            all_price.innerHTML = (Number(all_price.innerHTML)+ Number(item.parentNode.parentNode.children[4].innerHTML)).toFixed(2);
         }else{
             item.checked = false;
             count.innerHTML = "0"; 
@@ -170,3 +182,93 @@ function handelallchkEvent(){
         }
     })
 }
+
+
+//删除事件
+on(_(".myTbody"),"click",".del",handelDel);
+function handelDel(e){
+   
+    //发送请求携带参数字段，{用户名,商品id}
+    ajax({
+        url:"../api/handlegoods/delusergoods.php",
+        data:{
+            username:Cookie("token"),
+            goods_id:this.parentNode.getAttribute("goods-id")
+        }
+    })
+    .then(res => {
+        console.log(res);
+        if(res.code === 300){
+            //删除成功
+            this.parentNode.remove();
+            //重新渲染购物车数量
+            rendershopcarnum();
+        }else{
+            alert("服务器错误删除失败，请联系客服");
+        }
+    })
+    .catch(rej => {
+        console.log(rej);
+    })
+}
+
+//增加数量
+on(_(".myTbody"),"click",".toadd",handeladd);
+function handeladd(){
+    var num  = Number(this.previousElementSibling.value);
+    num++;
+    //发一个请求，如果成功了 就增加数量
+    ajax({
+        url:"../api/handlegoods/addgoods.php",
+        data:{
+            username:Cookie("token"),
+            goods_id:this.parentNode.parentNode.getAttribute("goods-id") ,
+            goods_count:num,
+        }
+    })
+    .then( res => {
+        console.log(res);
+        if(res.code == "250"){
+             //重新渲染购物车数量
+             rendershopcarnum();
+        }
+    })
+    .catch(rej => {
+        console.log(rej);
+    })
+    
+}
+
+//删除数量
+
+on(_(".myTbody"),"click",".redu",handelreduce);
+function handelreduce(){
+    var num  = Number(this.nextElementSibling.value);
+    //发一个请求，如果成功了 就减少数量
+    num--;
+    if( num === 0){
+        return false;
+    }
+    ajax({
+        url:"../api/handlegoods/addgoods.php",
+        data:{
+            username:Cookie("token"),
+            goods_id:this.parentNode.parentNode.getAttribute("goods-id") ,
+            goods_count:num,
+        }
+    })
+    .then( res => {
+        console.log(res);
+        if(res.code == "250"){
+             //重新渲染购物车数量
+             rendershopcarnum();
+        }
+    })
+    .catch(rej => {
+        console.log(rej);
+    })
+     
+}
+
+
+

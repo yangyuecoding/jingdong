@@ -441,10 +441,12 @@ body{
 .timer-active{
     background-color: red !important;
     color: #fff !important;
+    font-weight: 700;
 }
 
 .will-timer .left-time p {
     font-size: 14px;
+    font-weight: 700;
 }
 .will-timer .top{
     padding:2px 5px;
@@ -461,27 +463,34 @@ body{
 .container{
     width: 80%;
     margin: 0 auto;
-    
 }
 
 .goods-list{
   margin-top: 30px;
     cursor: pointer;
-    display: flex;
-    justify-content: space-around;
+    
+}
+.goods:nth-of-type(4n){
+    padding-right: 0px;
 }
 .goods{
-    border: 1px solid #666;
+    border: 1px solid #cccccc;
     width: 250px;
     float: left;
-    padding: 20px 10px;
+   padding-right:26px ;
+   padding-left: 26px;
+    padding-bottom: 20px;
+   padding-top: 20px;
     cursor: pointer;
     background-color: #fff;
 }
 
 .goods img{
    width: 100%;
-   
+   transition: all .3s ease-out;
+}
+.goods img:hover{
+    transform: translateY(-10px);
 }
 .goods .title{
     padding: 5px 10px;
@@ -510,4 +519,38 @@ body{
 
 .goods-list a {
     display: block;
+}
+.goods .sell-num{
+    display: flex;
+    padding: 0 10px;
+    align-items: flex-end;
+    font-size: 8px;
+} 
+.goods .sell-num > span{
+    margin-right: 5px;
+}
+.goods .sell-p{
+    position: relative;
+    height: 10px;
+    width: 50px;
+    background-color: #cccccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.more-p{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+.sell-num button{
+    font-size: 20px;
+    padding: 8px;
+    margin-left:30px ;
+    background-color: #f00;
+    color: #fff;
+    outline: 0;
+}
+.sell-num button:hover{
+    opacity: 0.6;
 }

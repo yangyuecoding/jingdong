@@ -250,13 +250,16 @@
 }
 .shopcar-list{
     margin-top: 50px;
+    margin-bottom: 70px;
 }
 .shoptable{
     table-layout: fixed;
 }
 .shoptable thead tr{
     height: 30px;
-   
+    background-color: #F3F3F3;
+   cursor: pointer;
+   border: 1px dashed #999;
 }
 .shoptable tr td img{
     width: 80px;
@@ -264,7 +267,7 @@
 }
 .shoptable tr td div.detail {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
 }
 .shoptable tr td,th{
     text-align: center;
@@ -272,7 +275,11 @@
 .shoptable tr td .detail{
     text-align: left;
 }
-
+.shoptable tr {
+    border: 1px solid #9e9e9e;
+    padding:10px 0;
+    cursor: pointer;
+}
 /* 底部结算兰 */
 .dottom_main{
     border-top: 2px solid #F0F0F0;
@@ -314,4 +321,13 @@
 }
 .mycount{
    padding: 0 5px;
+}
+.count_calc input{
+   width: 15px;
+
+}
+.count_calc button{
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
 }
