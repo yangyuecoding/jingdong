@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "9149162",
+      "name": "回到顶部",
+      "font_class": "huidaodingbu",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
       "icon_id": "3741623",
       "name": "定位",
       "font_class": "dingwei1",

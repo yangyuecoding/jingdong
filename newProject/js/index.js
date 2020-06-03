@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-25 09:47:00
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-03 00:19:11
+ * @LastEditTime: 2020-06-03 12:00:23
  */
 
 
@@ -13,7 +13,7 @@
 var register = _(".user-register"),
     login = _(".user-login"),
     userinfo = _(".userinfo"),
-    usi_slider=_(".usi-slider ul"),
+    usi_slider = _(".usi-slider ul"),
     usi_sm_sliders = _(".usi-sliders"),
     //用户左侧按钮
     left_menu = _(".usi-slider .icon-fangkuai-"),
@@ -27,14 +27,15 @@ var register = _(".user-register"),
     slid_rig_rem = _(".slid_rig_rem"),
     rig_slider_imgs = _(".scroll-bar"),
     scroll_box = _(".scroll-box"),
-    scroll_big_img =_(".rig-slider-imgs");
-    sli_img =_(".sli-img");
+    scroll_big_img = _(".rig-slider-imgs");
+sli_img = _(".sli-img");
 //用户侧左右移动状态变量
 var inco_move_count = 0;
 
 var shopcar_num = _(".shopcar-num");
+
 function regUserName() {
-    if (Cookie("token")) {   
+    if (Cookie("token")) {
         var right_clc_event = new Event("click");
         addClass(login, "hideTips");
         removeClass(register, "high");
@@ -44,38 +45,38 @@ function regUserName() {
         //处理轮播图右侧登录信息
         handelSlidUser();
         //显示用户的的下拉菜单
-        on(register,"mouseenter",dragUserInfo);
-        addClass(register,"basecolor");
-        on(userinfo,"mouseleave",function(){
-            removeClass(register.parentNode,"myspcposition");
+        on(register, "mouseenter", dragUserInfo);
+        addClass(register, "basecolor");
+        on(userinfo, "mouseleave", function () {
+            removeClass(register.parentNode, "myspcposition");
             userinfo.style.display = "none";
         });
-        on(left_menu,"click",function(){
+        on(left_menu, "click", function () {
             iconMenuMove("left");
         })
-        on(right_menu,"click",function(){
+        on(right_menu, "click", function () {
             iconMenuMove("right");
         })
         //退出登录
         console.log(_(".tologout"))
-        on(_(".tologout"),"click",function(){
+        on(_(".tologout"), "click", function () {
             removeClass(login, "hideTips");
             addClass(register, "high");
             register.innerHTML = "欢迎注册";
-            removeCookie("token","/");
+            removeCookie("token", "/");
             right_menu.dispatchEvent(right_clc_event);
         })
         //轮播图退出登录信息
-        on(slid_rig_logo,"click",function(){
+        on(slid_rig_logo, "click", function () {
             removeClass(login, "hideTips");
             addClass(register, "high");
             register.innerHTML = "欢迎注册";
-            removeCookie("token","/");
+            removeCookie("token", "/");
             right_menu.dispatchEvent(right_clc_event);
 
             slid_rig_tips.innerHTML = "Hi," + Cookie("token");
-            removeClass(slid_rig_logi,"hideTips");
-            removeClass(slid_rig_rem,"hideTips");
+            removeClass(slid_rig_logi, "hideTips");
+            removeClass(slid_rig_rem, "hideTips");
             slid_rig_logo.innerHTML = "注册";
             slid_rig_upd.innerHTML = "新人福利";
         })
@@ -85,31 +86,36 @@ function regUserName() {
         register.innerHTML = "欢迎注册";
     }
 }
-function dragUserInfo(){
-    addClass(this.parentNode,"myspcposition");
+
+function dragUserInfo() {
+    addClass(this.parentNode, "myspcposition");
     userinfo.style.display = "block";
     //修改ul的根据ul子元素个数修改ul的宽度
-    usi_slider.style.width = usi_slider.children.length * 85 +"px";
+    usi_slider.style.width = usi_slider.children.length * 85 + "px";
 }
 //左右按钮事件
-function iconMenuMove(der){
+function iconMenuMove(der) {
     console.log(der);
-    if(der === "right"){
-        if(Math.abs(parseInt(getStyle(usi_sm_sliders,"left")))  === 480 ) return false;
+    if (der === "right") {
+        if (Math.abs(parseInt(getStyle(usi_sm_sliders, "left"))) === 480) return false;
         inco_move_count++;
-        animate(usi_sm_sliders,{left:- (inco_move_count * 160)},"swing")
-    }else{
-        if(Math.abs(parseInt(getStyle(usi_sm_sliders,"left")))  === 0 ) return false;
+        animate(usi_sm_sliders, {
+            left: -(inco_move_count * 160)
+        }, "swing")
+    } else {
+        if (Math.abs(parseInt(getStyle(usi_sm_sliders, "left"))) === 0) return false;
         inco_move_count--;
-        animate(usi_sm_sliders,{left:- (inco_move_count * 160)},"swing")
+        animate(usi_sm_sliders, {
+            left: -(inco_move_count * 160)
+        }, "swing")
     }
-   
+
 }
 //处理登录信息
-function handelSlidUser(){
+function handelSlidUser() {
     slid_rig_tips.innerHTML = "Hi," + Cookie("token");
-    addClass(slid_rig_logi,"hideTips");
-    addClass(slid_rig_rem,"hideTips");
+    addClass(slid_rig_logi, "hideTips");
+    addClass(slid_rig_rem, "hideTips");
     slid_rig_logo.innerHTML = "退出";
     slid_rig_upd.innerHTML = "达叔说首充888送屠龙刀";
 }
@@ -123,9 +129,9 @@ function rendershopcarnum() {
             }
         })
         .then(res => {
-        shopcar_num.innerHTML = res.body.data.reduce( (data,item) =>{ 
-            return data += Number(item.goods_count);
-        },0)
+            shopcar_num.innerHTML = res.body.data.reduce((data, item) => {
+                return data += Number(item.goods_count);
+            }, 0)
         })
         .catch(rej => {
             console.log(rej);
@@ -464,27 +470,28 @@ window.onload = function () {
         loop: true
     });
     // 渲染首页商品列表
-ajax({
-    url: "http://localhost/pdd",
-    data: {
-        page: 1,
-        size: 50
-    }
-})
-.then(res => {
-    console.log(res);
-    //初始化工具函数  -- 同一的状态管理
-    init(res);
-})
-.catch(rej => {
-    console.log(rej);
-})
+    ajax({
+            url: "http://localhost/pdd",
+            data: {
+                page: 1,
+                size: 50
+            }
+        })
+        .then(res => {
+            console.log(res);
+            //初始化工具函数  -- 同一的状态管理
+            init(res);
+        })
+        .catch(rej => {
+            console.log(rej);
+        })
 
-function init(res) {
-var data = res.goods;
-//渲染页面
-renderIndex(data);
-}
+    function init(res) {
+        var data = res.goods;
+        //渲染页面
+        renderIndex(data);
+    }
+    renderTimer();
 }
 //合并对象
 function assign() {
@@ -563,11 +570,11 @@ $(".myslider li").mouseenter(function () {
     $(".slider-menus").show();
     for (var i = 0; i < this.parentNode.children.length; i++) {
         if (Number(this.getAttribute("data-index")) === i) {
-            $(".slider-menus").html(`这个是弹出的第<b>${i}</b>个页面了`);
+            // $(".slider-menus").html(`这个是弹出的第<b>${i}</b>个页面了`);
         }
     }
 })
-$(".myslider li").mouseleave(function () {
+$(".main-sell").mouseleave(function () {
     $(".slider-menus").hide();
 })
 
@@ -685,9 +692,9 @@ window.onscroll = function () {
             paddingTop: 12,
             backgroundColor: "#fff",
             borderBottom: "2px solid red",
-            "z-index":999
+            "z-index": 999
         });
-       
+
         $(".shopcar").css({
             right: 360,
             zIndex: 999,
@@ -708,6 +715,16 @@ window.onscroll = function () {
             zIndex: "",
             top: ""
         });
+    }
+    if( scrollTop >= 400 && scrollTop <= 700 ) {
+        addClass(_(".kill-goods"),"water-active");
+    }else{
+        removeClass(_(".kill-goods"),"water-active");
+    }
+    if( scrollTop >= 700 && scrollTop <= 1000 ) {
+        addClass(_(".specail-goods"),"water-active");
+    }else{
+        removeClass(_(".specail-goods"),"water-active");
     }
 }
 
@@ -776,11 +793,16 @@ var move_count = 0;
 // 控制移动的变量
 var imgs_isMOVE = true;
 var timer1 = null;
+
 function autoMove() {
-    if(!imgs_isMOVE) return false;
+    if (!imgs_isMOVE) return false;
     clearInterval(timer1);
-    animate(rig_slider_imgs,{opacity:0},"swing");
-    animate(scroll_box,{opacity:0},"swing");
+    animate(rig_slider_imgs, {
+        opacity: 0
+    }, "swing");
+    animate(scroll_box, {
+        opacity: 0
+    }, "swing");
     timer1 = setInterval(() => {
         move_count++;
         if (2 * move_count === 1980) {
@@ -793,11 +815,16 @@ function autoMove() {
 }
 // autoMove();
 var sli_img = _(".sli-img");
-scroll_big_img.addEventListener("mouseenter",stopMove)
-scroll_big_img.addEventListener("mouseleave",autoMove);
-function stopMove(){
-    animate(rig_slider_imgs,{opacity:1},"swing");
-    animate(scroll_box,{opacity:1},"swing");
+scroll_big_img.addEventListener("mouseenter", stopMove)
+scroll_big_img.addEventListener("mouseleave", autoMove);
+
+function stopMove() {
+    animate(rig_slider_imgs, {
+        opacity: 1
+    }, "swing");
+    animate(scroll_box, {
+        opacity: 1
+    }, "swing");
     clearInterval(timer1);
 }
 //自定义事件  鼠标移入事件
@@ -805,7 +832,7 @@ var autoMove = new Event("mouseenter");
 //自定义鼠标移出事件
 var autoLeave = new Event("mouseleave");
 
-scroll_big_img.dispatchEvent(autoLeave);    
+scroll_big_img.dispatchEvent(autoLeave);
 
 
 //点击li的时候村一条cookie 记录当前点击的id
@@ -819,107 +846,258 @@ var li_list = [].slice.call(_(".myul li"));
 var li_prev = 0;
 var li_next = 0;
 
-li_list.forEach( (item,index) => {
-    item.onmouseenter = function(){
+li_list.forEach((item, index) => {
+    item.onmouseenter = function () {
         console.log(this)
         li_prev = li_next;
         li_next = index;
 
-        removeClass(li_list[li_prev],"focus-goods");
-        addClass(li_list[li_next],"focus-goods");
+        removeClass(li_list[li_prev], "focus-goods");
+        addClass(li_list[li_next], "focus-goods");
     }
-} )
+})
 
 //发现好货
 
 
 
 //拖拽开始
-class Drag{
-    constructor(options){
+class Drag {
+    constructor(options) {
         //选择元素
         this.init(options);
         //移动状态变量
         this.isMove = false;
     }
-    init(options){
+    init(options) {
         this.chooseEle(options);
         this.fixedvarable();
-       this.bindEvent();
+        this.bindEvent();
     }
-    chooseEle(options){
-        for(var attr in options){
-            this[attr+"_ele"] = document.querySelector(options[attr]);
+    chooseEle(options) {
+        for (var attr in options) {
+            this[attr + "_ele"] = document.querySelector(options[attr]);
         }
     }
     //判定事件
-    bindEvent(){
-        on(this.move_box_ele,"mousedown",function(){
-           console.log("拖拽开始!");
-           //结束元素的运动
-           this.sli_img_ele.dispatchEvent(autoMove);  
-           this.isMove = true;
+    bindEvent() {
+        on(this.move_box_ele, "mousedown", function () {
+            console.log("拖拽开始!");
+            //结束元素的运动
+            this.sli_img_ele.dispatchEvent(autoMove);
+            this.isMove = true;
         }.bind(this))
-        on(document.body,"mousemove",function(e){
+        on(document.body, "mousemove", function (e) {
             e = e || window.event;
-            if(!this.isMove) return false;
+            if (!this.isMove) return false;
             //盒子移动
-           var x = e.pageX;
-          
-           this.box_slider(x);
+            var x = e.pageX;
+
+            this.box_slider(x);
             e.preventDefault();
-            
-         }.bind(this))
-         on(document.body,"mouseup",function(){
+
+        }.bind(this))
+        on(document.body, "mouseup", function () {
             console.log("拖拽结束!");
             this.isMove = false;
             //开启元素的运动
-            setTimeout(this.sli_img_ele.dispatchEvent(autoLeave),1000)
-         }.bind(this))
+            setTimeout(this.sli_img_ele.dispatchEvent(autoLeave), 1000)
+        }.bind(this))
     }
-    box_slider(x){
-       var _left = x - this.ancestors_offset._ac_left - this.ancestors_offset._ac_out_left - this.move_box_ele_offset._width / 2;
+    box_slider(x) {
+        var _left = x - this.ancestors_offset._ac_left - this.ancestors_offset._ac_out_left - this.move_box_ele_offset._width / 2;
         //判断边界
-       var end_pos =  this.boundary(_left);
-       this.move_box_ele.style.left = end_pos + "px";
-      
-       //计算移动的比例
-       this.move_p = {
-           x_p: isNaN((end_pos / ( this.move_fat_ele_offset._width - this.move_box_ele_offset._width )))?1:end_pos / ( this.move_fat_ele_offset._width - this.move_box_ele_offset._width )
-       }
-       //图片容器跟随移动
-       this.sli_img_ele.style.cssText = `width:3960px;transform:translateX(-${ parseInt( this.move_p.x_p * (this.sli_img_ele.offsetWidth -990) ) }px)`;
-       //将进度条拉动的距离存到 原本函数上面，防止每次拖拽结束回到0
-       move_count =  parseInt(parseInt( this.move_p.x_p * (this.sli_img_ele.offsetWidth -990) ) / 2);
-       //判断图片容器的移动范围
-       if( 2* move_count >= 1980){
-           move_count = 0;
-       }
+        var end_pos = this.boundary(_left);
+        this.move_box_ele.style.left = end_pos + "px";
+
+        //计算移动的比例
+        this.move_p = {
+            x_p: isNaN((end_pos / (this.move_fat_ele_offset._width - this.move_box_ele_offset._width))) ? 1 : end_pos / (this.move_fat_ele_offset._width - this.move_box_ele_offset._width)
+        }
+        //图片容器跟随移动
+        this.sli_img_ele.style.cssText = `width:3960px;transform:translateX(-${ parseInt( this.move_p.x_p * (this.sli_img_ele.offsetWidth -990) ) }px)`;
+        //将进度条拉动的距离存到 原本函数上面，防止每次拖拽结束回到0
+        move_count = parseInt(parseInt(this.move_p.x_p * (this.sli_img_ele.offsetWidth - 990)) / 2);
+        //判断图片容器的移动范围
+        if (2 * move_count >= 1980) {
+            move_count = 0;
+        }
     }
     //边界判断
-    boundary(_left){
-        _left = _left <= 0? 0 :_left;
-        _left = _left >= ( this.move_fat_ele_offset._width - this.move_box_ele_offset._width ) ?( this.move_fat_ele_offset - this.move_box_ele_offset._width ):_left;
+    boundary(_left) {
+        _left = _left <= 0 ? 0 : _left;
+        _left = _left >= (this.move_fat_ele_offset._width - this.move_box_ele_offset._width) ? (this.move_fat_ele_offset - this.move_box_ele_offset._width) : _left;
         return _left;
     }
     // 固定参数 为 元素的offsetleft
-    fixedvarable(){
+    fixedvarable() {
         this.ancestors_offset = {
-            _ac_left:this.move_box_ele.parentNode.parentNode.offsetLeft,
-            _ac_out_left:this.move_box_ele.parentNode.parentNode.parentNode.offsetLeft,
-        }   
+            _ac_left: this.move_box_ele.parentNode.parentNode.offsetLeft,
+            _ac_out_left: this.move_box_ele.parentNode.parentNode.parentNode.offsetLeft,
+        }
         this.move_box_ele_offset = {
-            _width:this.move_box_ele.offsetWidth
+            _width: this.move_box_ele.offsetWidth
         }
         //大长条的长度
         this.move_fat_ele_offset = {
-            _width:this.move_fat_ele.offsetWidth
+            _width: this.move_fat_ele.offsetWidth
         }
     }
 }
 
 new Drag({
-    move_box:".scroll-box",
-    move_fat:".scroll-bar",
-    sli_img:".sli-img"
+    move_box: ".scroll-box",
+    move_fat: ".scroll-bar",
+    sli_img: ".sli-img"
 })
+
+
+//抢购倒计时
+var cs_des = _(".cs-des"),
+    cs_timer = _(".timer");
+    
+function renderTimer(){
+    var d = new Date();
+    var rush_time;
+    if(d.getHours() % 2 === 0){
+        rush_time = d.getHours();
+    }else{
+        rush_time = d.getHours() - 1;
+    }
+    renderRTB(rush_time);
+    setInterval(function () {
+        if (!((rush_time + 2) === d.getHours())) return false;
+            rush_time += 2;
+            if ((rush_time + 2) === d.getHours()) {
+                rush_time = rush_time + 2;
+                if (rush_time >= 24) {
+                    rush_time = 0;
+                }
+                renderRTB(rush_time);
+            }
+    }, 1000);
+}
+function  renderRTB(rush_time){
+    cs_des.children[0].innerHTML = addZero(rush_time);
+   setInterval(function(){
+    disappeartime({
+        start:rush_time,
+        end:rush_time+2
+    })
+   },1000)
+}
+
+
+//时间间隔
+function disappeartime(options, toBreak) {
+    //可以穿多参数 {start:,end:}
+    if (!isObject(options)) return false;
+    var d = new Date();
+    // d.setHours(options.start,0,0);
+    var start = d.getTime();
+
+    d.setHours(options.end, 0, 0);
+    var end = d.getTime();
+    var reduce = end - start;
+    if (toBreak) return reduce;
+
+    var hour = getZero(parseInt(reduce / 1000 / 60 / 60));
+    var min = getZero(parseInt(reduce / 1000 / 60 % 60));
+    var sec = getZero(parseInt(reduce / 1000 % 60));
+    cs_timer.children[0].innerHTML = hour;
+    cs_timer.children[1].innerHTML = min;
+    cs_timer.children[2].innerHTML = sec;
+    if (Number(hour) === 0 && Number(min) === 0 && Number(sec) === 0) {
+        if (confirm("本场次抢购已经结束")) {
+            location.reload(true);
+        }
+    }
+}
+
+//计数单位
+function getZero(num) {
+    return num <= 9 ? "0" + num : num;
+}
+
+//时间数字小于10的
+function addZero(num) {
+    num = num.toFixed(2);
+    return num = num <= 9 ? "0" + num : num;
+}
+
+//回到顶部
+var fixed_list = _(".water").children[0].children;
+
+Array.from(fixed_list).forEach( (item,index) => {
+    if(index === 0){
+        item.onclick = function(){
+            window.scrollTo({ 
+                top: 400, 
+                behavior: "smooth" 
+            });
+        }
+    }
+    if(index === 1){
+        item.onclick = function(){
+            window.scrollTo({ 
+                top: 700, 
+                behavior: "smooth" 
+            });
+        }
+    }
+    if(index === 2){
+        item.onclick = function(){
+            window.scrollTo({ 
+                top: 0, 
+                behavior: "smooth" 
+            });
+        }
+    }
+})
+
+
+// 输入框搜索请求百度jsonp接口
+function jsonp(url,data,cb_fn_name,gb_fn_name,callback){
+    var _default = {};
+    _default[cb_fn_name ] = gb_fn_name;
+    data = data || {};
+    data = extend(_default,data);
+    window[data[ cb_fn_name]] = function(res){
+        callback(res);
+    }
+    var script = document.createElement("script");
+    script.src = toUrlData(url,data);
+    document.body.appendChild(script);
+    script.onload = function(){
+        this.remove();
+    }
+ }
+
+
+ _("#int-info").oninput = function(){
+    jsonp("https://www.baidu.com/sugrec",{
+        prod:"pc",
+        sugsid : "1423,31169,21125,30839,31187,30823,22159",
+        wd :this.value
+     },"cb","hello",function(res){
+        renderSerachList(res);
+     })
+ }
+ _("#int-info").onfocus = function(){
+    _(".serach-list").style.display = "block";
+ }
+ _("#int-info").onblur = function(){
+    _(".serach-list").style.display = "none";
+ }
+ function renderSerachList(data){
+     //不是对象
+     if(!isObject(data)) return false;
+    data = data.g;
+    //不是数组
+    if(! (data instanceof Array)) return false;
+    var str = "";
+    for(var i = 0 ;i<data.length;i++){
+        str += ` <li>${data[i].q}</li>`; 
+    }
+    _(".mu-list-ul").innerHTML = str;
+ }
