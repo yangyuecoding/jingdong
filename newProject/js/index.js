@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-25 09:47:00
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-03 12:00:23
+ * @LastEditTime: 2020-06-03 19:11:44
  */
 
 
@@ -805,7 +805,7 @@ function autoMove() {
     }, "swing");
     timer1 = setInterval(() => {
         move_count++;
-        if (2 * move_count === 1980) {
+        if (2 * move_count === 2970) {
             move_count = 0;
         }
         $(".sli-img").css({
@@ -1073,15 +1073,22 @@ function jsonp(url,data,cb_fn_name,gb_fn_name,callback){
     }
  }
 
-
+ //函数节流改写
+var timerx = null;
  _("#int-info").oninput = function(){
-    jsonp("https://www.baidu.com/sugrec",{
+     var val = this.value;
+     if(typeof timerx === "number") return false;
+    timerx = setTimeout(function(){
+        
+        timerx = null;
+        jsonp("https://www.baidu.com/sugrec",{
         prod:"pc",
         sugsid : "1423,31169,21125,30839,31187,30823,22159",
-        wd :this.value
+        wd :val
      },"cb","hello",function(res){
         renderSerachList(res);
      })
+    },100)
  }
  _("#int-info").onfocus = function(){
     _(".serach-list").style.display = "block";

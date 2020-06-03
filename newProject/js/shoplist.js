@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-28 11:33:44
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-02 23:38:16
+ * @LastEditTime: 2020-06-03 17:45:15
  */
 //获取首页商品列表 渲染分页
 var options = {
@@ -19,6 +19,7 @@ window.onload = function () {
             //如果成功的获取到了数据
             if (res.code === 200) {
                 init(res.body);
+                console.log(11111);
             }
         })
         .catch(rej => {
@@ -41,9 +42,11 @@ function init(data) {
     rendergoods(_default, _default.index);
      //渲染分页
      renderPage(_default);
+    
 }
 
 function renderPage(options){
+    
     var html = `<li class="prev"><</li>`;
     var len = 0;
     //根据列宽和类型来渲染数据
@@ -65,6 +68,9 @@ function renderPage(options){
     html += `<li class="next">></li>`; 
     _(".pageAction").innerHTML = html;
   
+    _(".pageAction").onclick = function(){
+        alert(1);
+    }
     //事件委托绑定事件 分页按钮
     on(_(".pageAction"),"click",".item",function(){
         options.index = Number(this.innerHTML);
