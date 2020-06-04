@@ -4,7 +4,7 @@
  * @Autor: YangYi
  * @Date: 2020-05-25 09:47:00
  * @LastEditors: YangYi
- * @LastEditTime: 2020-06-03 19:11:44
+ * @LastEditTime: 2020-06-04 14:45:03
  */
 
 
@@ -694,13 +694,14 @@ window.onscroll = function () {
             borderBottom: "2px solid red",
             "z-index": 999
         });
-
+        _(".serach-list").style.left = "452px";
         $(".shopcar").css({
             right: 360,
             zIndex: 999,
             top: 12
         });
     } else {
+        _(".serach-list").style.left = "290px";
         console.log("吸顶结束");
         $(".serach").css({
             position: "",
