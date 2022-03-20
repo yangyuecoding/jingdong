@@ -1,6 +1,7 @@
 /* 版心 1190px */
 /* 解决高度塌陷 */
 $width:1190px;
+
 .clearAll::after{
     content: "";
     display: block;
